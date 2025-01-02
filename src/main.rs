@@ -52,8 +52,14 @@ fn main() {
     makes_copy(x); // x would move into the function,
                    // but i32 is Copy, so it's okay to still
                    // use x afterward
-    println!("out of scope in simple scalar: {x}") // still work because x is scalar, Rust copy not
-                                                   // move it into function scope
+    println!("out of scope in simple scalar: {x}"); // still work because x is scalar, Rust copy not
+                                                    // move it into function scope
+
+    let s1 = String::from("hello");
+
+    let (s2, len) = calculate_length(s1);
+
+    println!("The length of '{s2}' is {len}.");
 } // Here, x goes out of scope, then s. But because s's value was moved, nothing
   // special happens.
 
@@ -67,3 +73,9 @@ fn makes_copy(some_integer: i32) {
     // some_integer comes into scope
     println!("{some_integer}");
 } // Here, some_integer goes out of scope. Nothing special happens.
+
+fn calculate_length(s: String) -> (String, usize) {
+    let length = s.len(); // len() returns the length of a String
+
+    (s, length)
+}
