@@ -11,4 +11,11 @@ fn main() {
     let r2 = &mut s;
 
     println!("r2: {}", r2); // work because not 'borrow' more than once at a time
+
+    {
+        let r3 = &s;
+        println!("r3: {}", r3);
+    }
+    let r4 = &s;
+    println!("r4: {}", r4);
 }
