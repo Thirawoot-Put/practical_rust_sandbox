@@ -1,33 +1,21 @@
 fn main() {
-    //let mut s = String::from("hello");
+    let mut s = String::from("hello world");
 
-    //let r1 = &mut s;
-    //let r2 = &mut s;
-    //
-    //println!("{},{}", r1, r2); // cannot 'borrow' "s" more than once at a time
+    let word = first_word(&s);
 
-    //let r1 = &mut s;
-    //println!("r1: {}", r1);
-    //let r2 = &mut s;
-    //
-    //println!("r2: {}", r2); // work because not 'borrow' more than once at a time
-    //
-    //{
-    //    let r3 = &s;
-    //    println!("r3: {}", r3);
-    //}
-    //let r4 = &s;
-    //println!("r4: {}", r4);
+    s.clear(); // error!
 
-    let mut s = String::from("hello");
+    println!("the first word is: {word}");
+}
 
-    let r1 = &s; // no problem
-    let r2 = &s; // no problem
-    println!("{r1} and {r2}");
-    // variables r1 and r2 will not be used after this point
+fn first_word(s: &String) -> &str {
+    let bytes = s.as_bytes();
 
-    let r3 = &mut s; // no problem
-    println!("{r3}");
+    for (i, &item) in bytes.iter().enumerate() {
+        if item == b' ' {
+            return &s[0..i];
+        }
+    }
 
-    //println!("{r1} and {r2}"); compile error, Rust will determin it's ่
+    &s[..]
 }
