@@ -13,10 +13,14 @@ fn main() {
         sign_in_count: 1,
     };
 
+    println!("user1 email: {}", user1.email);
+
     let user2 = User {
         email: String::from("another@example.com"),
-        ..user1
+        ..user1 // user1.username is moved here
     };
+    //println!("user1 username: {}", user1.username); // compile error: user1.username was moved
+    println!("user2 email: {}", user2.email);
 }
 
 fn build_user(email: String, username: String) -> User {
