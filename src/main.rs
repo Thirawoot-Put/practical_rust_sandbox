@@ -10,5 +10,6 @@ fn main() {
         hight: 50,
     };
 
-    println!("rect1 is {:#?}", rect1);
+    dbg!(&rect1);
+    println!("{}", rect1.width)
 }
