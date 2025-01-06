@@ -10,6 +10,6 @@ fn main() {
         hight: 50,
     };
 
-    dbg!(&rect1);
+    let rect1 = dbg!(rect1); // dbg! takes ownership, rect1 is moved
     println!("{}", rect1.width)
 }
