@@ -5,6 +5,7 @@ struct Rectangle {
 
 impl Rectangle {
     fn area(&self) -> u32 {
+        // &self is shorthand for self: &Self
         self.width * self.hight
     }
 }
