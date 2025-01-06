@@ -12,8 +12,20 @@ fn main() {
         "The area of the rectangle is {} square pixels.",
         area(&rect1)
     );
+
+    println!(
+        "The width of the rectangle is {}, area is {}",
+        two_multiply_width(&rect1),
+        area(&rect1)
+    ); // not error because width is simple scalar
+
+    println!("Current width {}", rect1.width)
 }
 
 fn area(rectangle: &Rectangle) -> u32 {
     rectangle.width * rectangle.hight
+}
+
+fn two_multiply_width(rectangle: &Rectangle) -> u32 {
+    rectangle.width * 2
 }
