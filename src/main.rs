@@ -4,11 +4,11 @@ mod front_of_house {
     }
 }
 
-mod customer {
-    use crate::front_of_house::hosting;
+use crate::front_of_house::hosting;
 
+mod customer {
     pub fn eat_at_restaurant() {
-        hosting::add_to_waitlist();
+        super::hosting::add_to_waitlist();
     }
 }
 
