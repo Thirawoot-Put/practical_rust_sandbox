@@ -1,13 +1,18 @@
 fn main() {
-    let empty_v: Vec<u64> = Vec::new();
-    //empty_v.push(0);
+    let v = vec![1, 2, 3, 4];
 
-    let fill_v = vec![1, 2, 3];
-    let mut mut_v = Vec::new();
+    let third: &i32 = &v[2];
+    println!("Third index of v is {third}");
 
-    mut_v.push(1);
-    mut_v.push(2);
-    mut_v.push(3);
+    let third: Option<&i32> = v.get(2);
+    match third {
+        Some(value) => println!("Third index of v is {value}"),
+        None => println!("There is no third element"),
+    }
 
-    println!("Hello, world!");
+    let fifth = v.get(4); // return Option<T>
+    match fifth {
+        Some(value) => println!("Third index of v is {value}"),
+        None => println!("There is no fifth element"),
+    }
 }
