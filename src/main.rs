@@ -15,4 +15,16 @@ fn main() {
         Some(value) => println!("Third index of v is {value}"),
         None => println!("There is no fifth element"),
     }
+
+    enum SpreadsheetCell {
+        Int(i32),
+        Float(f64),
+        Text(String),
+    }
+
+    let row = vec![
+        SpreadsheetCell::Int(3),
+        SpreadsheetCell::Text(String::from("blue")),
+        SpreadsheetCell::Float(10.12),
+    ];
 }
