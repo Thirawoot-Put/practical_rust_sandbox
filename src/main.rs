@@ -1,15 +1,14 @@
 fn main() {
-    let mut s = String::new();
+    let mut s = String::from("foo");
+    let r_s = &s;
+    println!("1---> s: {r_s:p} capacity {}", s.capacity());
 
-    let data = "initial contents";
+    let s2 = String::from("bar hello word baba");
+    let r_s2 = &s2;
 
-    s = data.to_string();
-    println!("{s}");
+    s.push_str(&s2);
+    let r_s = &s;
 
-    // the method also works on a literal directly:
-    s = "initial contents".to_string();
-    println!("{s}");
-
-    let s = String::from("hello contents");
-    println!("{s}");
+    println!("2---> s: {r_s:p} capacity {}", s.capacity());
+    println!("---> s2: {r_s2:p}");
 }
