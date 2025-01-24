@@ -1,11 +1,18 @@
 fn main() {
     use std::collections::HashMap;
 
-    let mut scores = HashMap::new();
-    scores.insert(String::from("Blue"), 10);
+    let text = "hello world wonderful world";
 
-    scores.entry(String::from("Yellow")).or_insert(50);
-    scores.entry(String::from("Blue")).or_insert(50);
+    let mut map = HashMap::new();
 
-    println!("{scores:?}");
+    for word in text.split_whitespace() {
+        //.split_whitespace() return iterator that return string slices which is
+        //sub-slice of original string
+        println!("{word}");
+        let count = map.entry(word).or_insert(0);
+        *count += 1; // use return form or_insert(reference to that value) to increment it by
+                     // dereference with *
+    }
+
+    println!("{map:?}");
 }
