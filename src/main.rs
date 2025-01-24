@@ -12,7 +12,7 @@ fn main() {
         let count = map.entry(word).or_insert(0);
         *count += 1; // use return form or_insert(reference to that value) to increment it by
                      // dereference with *
-    }
+    } // mutable reference end here
 
     println!("{map:?}");
 }
